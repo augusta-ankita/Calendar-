@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar & Reminders</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>CALENDAR</h1>
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth" aria-label="Previous Month">&lt;</button>
+        <h2 id="monthYear"></h2>
+        <button id="nextMonth" aria-label="Next Month">&gt;</button>
+      </div>
+      <div class="calendar-weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="calendar-days" id="calendarDays"></div>
+    </div>
+    <div class="event-container">
+      <h3>Events on <span id="selectedDateDisplay"></span></h3>
+      <ul id="eventList"></ul>
+      <button id="addEventButton">Add Event</button>
+    </div>
+  </div>
+
+  <!-- Modal for Adding/Editing Event -->
+  <div id="eventModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="modalTitle">Add Event</h2>
+      <form id="eventForm">
+        <label for="eventTitle">Event Title</label>
+        <input type="text" id="eventTitle" name="eventTitle" required />
+
+        <label for="eventDate">Date</label>
+        <input type="date" id="eventDate" name="eventDate" required />
+
+        <label for="eventTime">Time</label>
+        <input type="time" id="eventTime" name="eventTime" required />
+
+        <label for="eventReminder">Set Reminder</label>
+        <select id="eventReminder" name="eventReminder" required>
+          <option value="0">None</option>
+          <option value="5">5 minutes before</option>
+          <option value="10">10 minutes before</option>
+          <option value="15">15 minutes before</option>
+          <option value="30">30 minutes before</option>
+          <option value="60">1 hour before</option>
+        </select>
+
+        <div class="modal-buttons">
+          <button type="submit">Save Event</button>
+          <button type="button" id="cancelButton">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
